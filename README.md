@@ -39,3 +39,15 @@ If a concrete and trustworthy classification model is successfully constructed, 
 # Extra-information
 
 # References
+## Face Recognition
+- [realpython.com](https://realpython.com/face-recognition-with-python/)
+- [analyticsvidhya.com](https://www.analyticsvidhya.com/blog/2022/04/face-recognition-system-using-python/))
+
+## Literature Review
+[1] Han, K., Yu, D., & Tashev, I. (2014, September). Speech emotion recognition using deep neural
+network and extreme learningmachine. Interspeech 2014. <br>
+[2] Ng, H. W., Nguyen, V. D., Vonikakis, V., & Winkler, S. (2015, November). Deep learning for emotion
+recognition on small datasets using transfer learning. Proceedings of the 2015 ACM on international
+conference on multimodal interaction (pp. 443-449). <br>
+[3] Minaee, S., Minaei, M., & Abdolrashidi, A. (2021 April). Deep-Emotion: Facial Expression Recognition Using Attentional Convolutional Network. Sensors 2021, 21, 3046.
+https://doi.org/10.3390/s21093046
