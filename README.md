@@ -1,5 +1,5 @@
 # Facial-Emotion-Recognition
-This project is able to predict human emotion by receiving an input image.
+In Summer 2022, I did this personal project which is able to predict human emotion by receiving an input image.
 
 **Andrea Miele**
 
