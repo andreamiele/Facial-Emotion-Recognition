@@ -41,7 +41,7 @@ If a concrete and trustworthy classification model is successfully constructed, 
 # References
 ## Face Recognition
 - [realpython.com](https://realpython.com/face-recognition-with-python/)
-- [analyticsvidhya.com](https://www.analyticsvidhya.com/blog/2022/04/face-recognition-system-using-python/))
+- [analyticsvidhya.com](https://www.analyticsvidhya.com/blog/2022/04/face-recognition-system-using-python/)
 
 ## Literature Review
 [1] Han, K., Yu, D., & Tashev, I. (2014, September). Speech emotion recognition using deep neural
