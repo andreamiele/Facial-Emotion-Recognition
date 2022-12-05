@@ -50,4 +50,6 @@ network and extreme learningmachine. Interspeech 2014. <br>
 recognition on small datasets using transfer learning. Proceedings of the 2015 ACM on international
 conference on multimodal interaction (pp. 443-449). <br>
 [3] Minaee, S., Minaei, M., & Abdolrashidi, A. (2021 April). Deep-Emotion: Facial Expression Recognition Using Attentional Convolutional Network. Sensors 2021, 21, 3046.
-https://doi.org/10.3390/s21093046
+https://doi.org/10.3390/s21093046 <br>
+[4] A. V. Savchenko, L. V. Savchenko and I. Makarov, "Classifying Emotions and Engagement in Online Learning Based on a Single Facial Expression Recognition Neural Network," in IEEE Transactions on Affective Computing, vol. 13, no. 4, pp. 2132-2143, 1 Oct.-Dec. 2022, doi: 10.1109/TAFFC.2022.3188390.
+[5] Goodfellow, I. J., Erhan, D., Carrier, P. L., Courville, A., Mirza, M., Hamner, B., ... & Bengio, Y. (2013, November). Challenges in representation learning: A report on three machine learning contests. In International conference on neural information processing (pp. 117-124). Springer, Berlin, Heidelberg.
