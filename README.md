@@ -11,10 +11,10 @@ Through analyzing their reaction to something or their emotional condition or we
 Machine learning for face emotion recognition is an area prone to mistake owing to fluctuating lighting, location, and other aspects in facial photographs. Furthermore, even by human standards, many people have difficulty recognizing emotion from the face alone. As a result, models will have difficulty obtaining great accuracy.
 
 If a concrete and trustworthy classification model is successfully constructed, it may be used in a variety of sectors. Here are a couple such examples: <br>
-• Clinical and psychological applications - Individuals with developmental or mental illnesses, such as autism spectrum disorder and schizophrenia, who frequently difficulty with understanding emotion from facial expressions, might benefit from this service. A dependable model can be utilized to provide instruction to such persons in order to help them develop the abilities required to discern subtleties in facial expressions. In turn, a model can teach appropriate responding emotions, assisting individuals in better understanding particular social circumstances. <br>
-• Criminology and forensic psychology - Assisting investigations by recognizing suspects' facial expressions during questioning, similar to the results of a lie detector. <br>
-• Human-Computer Interaction (HCI) - Assisting in consumer and market research by assessing ad effectiveness and customer satisfaction. Their results can be enhanced and lead to improved items or recommendations with the use of a dependable model. <br>
-• Political Science - Detecting politicians' emotions during public appearances or speeches.
+- Clinical and psychological applications - Individuals with developmental or mental illnesses, such as autism spectrum disorder and schizophrenia, who frequently difficulty with understanding emotion from facial expressions, might benefit from this service. A dependable model can be utilized to provide instruction to such persons in order to help them develop the abilities required to discern subtleties in facial expressions. In turn, a model can teach appropriate responding emotions, assisting individuals in better understanding particular social circumstances. <br>
+- Criminology and forensic psychology - Assisting investigations by recognizing suspects' facial expressions during questioning, similar to the results of a lie detector. <br>
+- Human-Computer Interaction (HCI) - Assisting in consumer and market research by assessing ad effectiveness and customer satisfaction. Their results can be enhanced and lead to improved items or recommendations with the use of a dependable model. <br>
+- Political Science - Detecting politicians' emotions during public appearances or speeches.
 
 # Methods
 ## Data Exploration
