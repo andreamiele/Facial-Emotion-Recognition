@@ -48,6 +48,73 @@ Every few frames, I collect a picture of the stream, analyse it as usual, and th
 ## Models
 ### CNN
 
+_________________________________________________________________|
+| Layer (type)                |Output Shape              |Param # |  
+|-----------------------------|--------------------------|--------|
+| conv2d (Conv2D)             |(None, 46, 46, 256)       |2560    |  
+|                             |                          |        |  
+| batch_normalization (BatchN | (None, 46, 46, 256)      |1024    |  
+| ormalization)               |                          |        |  
+|                             |                          |        |  
+| conv2d_1 (Conv2D)           |(None, 46, 46, 256)       |590080  |  
+|                             |                          |        |  
+| batch_normalization_1 (Batc | (None, 46, 46, 256)      |1024    |  
+| hNormalization)             |                          |        |  
+|                             |                          |        |  
+| max_pooling2d (MaxPooling2D | (None, 23, 23, 256)      |0       |  
+| )                           |                          |        |  
+|                             |                          |        |  
+| conv2d_2 (Conv2D)           |(None, 23, 23, 128)       |295040  |  
+|                             |                          |        |  
+| batch_normalization_2 (Batc | (None, 23, 23, 128)      |512     |  
+| hNormalization)             |                          |        |  
+|                             |                          |        | 
+| conv2d_3 (Conv2D)           |(None, 23, 23, 128)       |147584  |  
+|                             |                          |        |  
+| batch_normalization_3 (Batc | (None, 23, 23, 128)      |512     |  
+| hNormalization)             |                          |        |  
+|                             |                          |        |  
+| max_pooling2d_1 (MaxPooling | (None, 11, 11, 128)      |0       |  
+| 2D)                         |                          |        |  
+|                             |                          |        |  
+| conv2d_4 (Conv2D)           |(None, 11, 11, 64)        |73792   |  
+|                             |                          |        |  
+| batch_normalization_4 (Batc | (None, 11, 11, 64)       |256     |  
+| hNormalization)             |                          |        |  
+|                             |                          |        |  
+| conv2d_5 (Conv2D)           |(None, 11, 11, 64)        |36928   |  
+|                             |                          |        | 
+| batch_normalization_5 (Batc |(None, 11, 11, 64)        |256     |  
+| hNormalization)             |                          |        |  
+|                             |                          |        |  
+| max_pooling2d_2 (MaxPooling |(None, 5, 5, 64)          |0       |  
+| 2D)                         |                          |        |  
+|                             |                          |        |  
+| flatten (Flatten)           |(None, 1600)              |0       |  
+|                             |                          |        | 
+| dense (Dense)               |(None, 512)               |819712  |  
+|                             |                          |        |  
+| batch_normalization_6 (Batc |(None, 512)               |2048    |  
+| hNormalization)             |                          |        |  
+|                             |                          |        | 
+| dense_1 (Dense)             |(None, 256)               |131328  |  
+|                             |                          |        | 
+| batch_normalization_7 (Batc | (None, 256)              |1024    |  
+| hNormalization)             |                          |        |  
+|                             |                          |        |  
+| dense_2 (Dense)             |(None, 128)               |32896   |  
+|                             |                          |        |  
+| batch_normalization_8 (Batc | (None, 128)              |512     |  
+| hNormalization)             |                          |        |  
+|                             |                          |        |  
+| dense_3 (Dense)             |(None, 7)                 |903     |  
+|                                                                  
+================================================================= 
+Total params: 2,137,991
+Trainable params: 2,134,407
+Non-trainable params: 3,584
+_________________________________________________________________
+
 For CNN, I created the mode using Keras' sequential model. In general, CNN is a relatively sophisticated model with several layer combinations. I began with three modules, each consisting of two Conv2D layers, a Batch Normalization layer, and a MaxPooling2D layer.
 Conv2D's kernel size was set at (3,3) using the ReLU activation function, and the number of filters began at 256 and was reduced with each module until it reached 64 filters. MaxPooling2D employed a pool size of (2,2) and strides of (2,2). Following the Flatten layer, I had three Dense layer modules, each followed by a Batch Normalization layer.The activation function of ReLU was also employed in the Dense layers, which began with 512 filters and was halved with each module, finishing with 128 filters. The final Dense layer output has 7 filters with softmax as the activation function.
 
