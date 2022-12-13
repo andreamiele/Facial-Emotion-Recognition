@@ -128,6 +128,13 @@ However, I opted to maintain the label since it would limit the scope of my mode
 I added face detection to my model for software implementation by utilizing the opencv cascade classifier, which captures the face from the image. The opencv cascade classifier converts the image to a normalized grayscale with a 48*48 resolution, after which my model predicts its mood based on the image. I can enhance the model even further by post-training it using a dataset in which I ask people to create certain emotional facial expressions.
 
 # Extra-information
+## How to Use:
+
+### Live Demo
+See more details [here](./live_demo)
+
+### Static Demo
+See more details [here](./static_demo)
 
 # References
 ## Face Recognition
