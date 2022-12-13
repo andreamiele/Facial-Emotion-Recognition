@@ -20,24 +20,78 @@ If a concrete and trustworthy classification model is successfully constructed, 
 
 # Methods
 ## Data Exploration
+The fer2013 dataset in the form of a CSV file is being utilized in this research. The dataset has 35887 rows and three columns: mood, pixels, and use. The emotion is stored as a number from 0 to 6, corresponding to the emotions anger, disgust, fear, happiness, sorrow, surprise, and neutral. The pixels are arrays of integers that represent the pictures through their pixel values in text format. The arrays have a size of 2304, implying that the pictures are 48 by 48 pixels. Because the photos are centered on faces and are already in greyscale, each item in the array shows how black that exact pixel is.
 
+
+The use indicates that the entries are for training (80%), public testing (10%), or private testing (10%). Below are some sample photographs from the collection, as well as the distribution of the images depending on their respective emotions.
+
+
+Happiness is the most common emotion in the sample, accounting for 8,989 occurrences, while disgust accounts for 547. The other emotions are rather evenly dispersed among the 4,000 to 6,200 entries. It is crucial to highlight that the number of data points for disgust is significantly fewer than for the other emotions, which may have an impact on my results. There are several reasons why we chose this dataset for my research. A dataset of human faces is most suited to my study since my objective is to predict emotions based on photos of facial expressions. Fer2013 is a well-known dataset that many of the relevant articles utilized to test their models. It "has greater variance in the photos, including facial occlusion (usually with a hand), partial faces, low-contrast images, and spectacles," according to the researchers (Minaee, Minaei & Abdolrashidi, 2021, p. 5). Furthermore, because the photos just contain the faces, are already in greyscale, and are the correct size, they do not require any preprocessing.
+
+
+## Methodology and challenges
+This is a problem with several classifications. However, because we are working with pictures, a standard Deep Neural Network will not sufficient. I found from my research that the most common models for image-related issues are Convolutional Neural Network (CNN) and Support Vector Machine (SVM). Finally, we developed three distinct models. In addition to the CNN and SVM, we created a K-Nearest Neighbor (KNN) as an additional option.
+
+I began developing my project apps while we were deciding which model to utilize. I required a user input interface in order to use my model. Furthermore, my model was trained on grayscale photographs trimmed to focus on the face, while my user input will almost certainly be in full color photos that may or may not be focused in the same way Another layer of processing was required to transform the input photos into a format that my model could understand.OpenCV includes both the CascadeClassifier tool for cropping the face from the source picture and the cvtColor function for converting the image to grayscale. These two functions allow us to effectively process user input.
+
+
+With that, we can begin to construct the apps.
+My first idea was to design a web application that allows users to input a photograph of a person's face and receive an emotion forecast. Following that, we broadened my reach and created an application that could identify facial expressions and classify them into emotions in real time, utilizing an interface that accepts live video through a camera.
+
+This was shockingly easy.
+Every few frames, we collect a picture of the stream, analyse it as usual, and then let my model forecast the sentiment. Users may acquire the emotion prediction outputs faster with this interface, and the result will update continuously as long as the video is still playing.
 
 ## Data Preprocessing
 
+**TODO**
+
+## Models
+### CNN
+
+For CNN, we created the mode using Keras' sequential model. In general, CNN is a relatively sophisticated model with several layer combinations. I began with three modules, each consisting of two Conv2D layers, a Batch Normalization layer, and a MaxPooling2D layer.
+Conv2D's kernel size was set at (3,3) using the ReLU activation function, and the number of filters began at 256 and was reduced with each module until it reached 64 filters. MaxPooling2D employed a pool size of (2,2) and strides of (2,2). Following the Flatten layer, we had three Dense layer modules, each followed by a Batch Normalization layer.The activation function of ReLU was also employed in the Dense layers, which began with 512 filters and was halved with each module, finishing with 128 filters. The final Dense layer output has 7 filters with softmax as the activation function.
 
 
-## Main model 
+The Conv2D layer, which applies filters to the input, is at the heart of this model. The Batch Normalization layer is intended to speed up training, whereas the MaxPooling2D layer is intended to decrease overfitting and computational burden. To fulfill the input shape requirement of the Dense layers, the Flatten layer is utilized to decrease the dimensionality of the output from preceding layers down to one. The Dense layer is responsible for taking all of the previous neurons' outputs and performing vector-matrix multiplication with its filters.
 
 
-# Results
+Because my processing capacity was so restricted, it was difficult to do a completely structured Grid Search for hyper-parameter tweaking. Because the model's average training duration exceeds 14 hours, we were only able to train a few parameter combinations. I independently tried numerous parameter adjustments. To decrease overfitting and outliers, we reduced the amount of filters in the Conv2D and Dense layers, used a simpler activation function, introduced regularizations of L1 and L2 in the Cov2D layers, and added Dropout Layers. Unfortunately, each of these adjustments resulted in a model that performed worse.
+
+#### Results
+The best model has a testing accuracy of 66%, according to the classification report and the confusion matrix. As we can see, the model has a proclivity to conflate melancholy with fear and neutral with sadness. This might be due to the kind of photographs in the dataset - many images feature hands covering their faces to express grief or fear. The neutral faces resemble some of the sad faces in appearance. Although the model's performance in predicting disgust is not awful, the model's accuracy when dealing with additional disgust pictures may suffer due to a lack of data.
+
+<img src="results/CNN.png" width="400"/>
+### SVM
+For SVM, I used sklearn’s SVC function to create all of the SVM models. I started by creating a single model for each Kernel option, and set the rest of the parameters to the default values of the SVC function. I tested with **Linear, Polynomial and RBF** kernels.
+
+#### Results
+RBF had the best accuracy at 44%, and the polynomial kernel had 43% accuracy. The rest of the kernels had accuracies below 40%, with the linear kernel having the lowest accuracy, at 35%. Since the difference between the RBF kernel and polynomial kernel was only 1%, I decided to fine tune the other parameters for both of the kernels. I started with the Polynomial first because it has the degree of the function as an extra parameter. The original Polynomial model I trained used a degree of 3, so I tested new models with higher degrees. However, increasing the degree did not improve the accuracy. My initial RBF and Polynomial models were the best two models I would create as changing any of the other parameters only decreased the accuracy of the model. Interestingly, most SVM models were more likely to predict happiness than any other emotion, and would avoid predicting disgust. SVM models take relatively little time to train compared to the other models- the fastest SVM took about 30 minutes to train, and the slowest SVM took about 2 hours to train.
+<img src="results/SVM.png" width="400"/>
+
+### KNN
+Multiple KNN models were tested for this experiment. Hyperparameter tuning was done using gridsearch. The parameters used in gridsearch were leaf_size, n_neighbors, and p.
+#### Results
+The highest KNN accuracy was 41% and it was achieved when n_neighbors = 1 and p = 1. However, this model frequently confused Happy and Neutral faces.
+
+<img src="results/KNN.png" width="400"/>
+
+# Software implementation
+## Diagram
+<img src="results/Flowchart.png" width="400"/>
+## Explanation
+After training three models, CNN, SVM, KNN, with a relatively high accuracy, I created an "app" that can capture the video stream of the webcam and detect the emotion per frame. As mentioned before, my models can only classify the emotion of a face picture, and relies on other software to provide face detection.
+
+I use the built in opencv cascade classifier to capture the face and draw the frame to surround theface in the opencv captured picture. Then, I crop the image to 48*48 with a normalized gray scale.
+Then, I do the prediction and update the UI implemented by PythonSimpleGUI library. For future implementation of the software, someone asked about a post training process that adjusts the pretrained model with the face of a specific person in order to improve the accuracy of detecting the emotion of that person. I was thinking about adding the post training process to the software by asking the specific person to express some emotions in order to improve the post-training dataset.
+A more complicated but feasible approach is to recognize the face as nodal points in the pre-training process and identify the specific person’s facial nodal points in the software. In that case, the accuracy for detecting a specific person’s emotion can also be improved.
+# Conclusion and Discussion
+
+I was able to develop a model with 66% accuracy using Convolution Neural Network (CNN) with three sections utilizing the dataset 'fer2013', which comprises photos of 6 distinct facial expressions and their emotion labels, and 3 different models (CNN, SVM, KNN).
+Because the 'disgust' data was relatively little in comparison to other emotions, I might have improved the model's accuracy by oversampling the data of disgusted expressions or deleting the 'disgust' data from the model.
 
 
-# Discussion
-
-
-# Conclusion
-
-
+However, I opted to maintain the label since it would limit the scope of my model in real-world scenarios. Keeping the label allows me to progressively add additional data to my model and increase its accuracy.
+I added face detection to my model for software implementation by utilizing the opencv cascade classifier, which captures the face from the image. The opencv cascade classifier converts the image to a normalized grayscale with a 48*48 resolution, after which my model predicts its mood based on the image. I can enhance the model even further by post-training it using a dataset in which I ask people to create certain emotional facial expressions.
 # Extra-information
 
 # References
