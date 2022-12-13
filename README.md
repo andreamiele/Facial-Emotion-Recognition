@@ -75,11 +75,10 @@ Every few frames, I collect a picture of the stream, analyse it as usual, and th
 | batch_normalization_8 (BatchNormalization) | (None, 128)              |512     |  
 | dense_3 (Dense)             |(None, 7)                 |903     |  
                                                                 
-</br>
+
 **Total params:** 2,137,991 </br>
 **Trainable params:** 2,134,407 </br>
 **Non-trainable params:** 3,584 </br>
-_________________________________________________________________
 
 For CNN, I created the mode using Keras' sequential model. In general, CNN is a relatively sophisticated model with several layer combinations. I began with three modules, each consisting of two Conv2D layers, a Batch Normalization layer, and a MaxPooling2D layer.
 Conv2D's kernel size was set at (3,3) using the ReLU activation function, and the number of filters began at 256 and was reduced with each module until it reached 64 filters. MaxPooling2D employed a pool size of (2,2) and strides of (2,2). Following the Flatten layer, I had three Dense layer modules, each followed by a Batch Normalization layer.The activation function of ReLU was also employed in the Dense layers, which began with 512 filters and was halved with each module, finishing with 128 filters. The final Dense layer output has 7 filters with softmax as the activation function.
