@@ -61,6 +61,7 @@ Because my processing capacity was so restricted, it was difficult to do a compl
 The best model has a testing accuracy of 66%, according to the classification report and the confusion matrix. As we can see, the model has a proclivity to conflate melancholy with fear and neutral with sadness. This might be due to the kind of photographs in the dataset - many images feature hands covering their faces to express grief or fear. The neutral faces resemble some of the sad faces in appearance. Although the model's performance in predicting disgust is not awful, the model's accuracy when dealing with additional disgust pictures may suffer due to a lack of data.
 
 <img src="results/CNN.png" width="400"/>
+
 ### SVM
 For SVM, I used sklearn’s SVC function to create all of the SVM models. I started by creating a single model for each Kernel option, and set the rest of the parameters to the default values of the SVC function. I tested with **Linear, Polynomial and RBF** kernels.
 
