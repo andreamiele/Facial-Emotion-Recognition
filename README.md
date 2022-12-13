@@ -78,7 +78,7 @@ The highest KNN accuracy was 41% and it was achieved when n_neighbors = 1 and p 
 
 # Software implementation
 ## Diagram
-<img src="results/Flowchart.png" width="400"/>
+<img src="results/Flowchart.png" width="800"/>
 
 ## Explanation
 After training three models, CNN, SVM, KNN, with a relatively high accuracy, I created an "app" that can capture the video stream of the webcam and detect the emotion per frame. As mentioned before, my models can only classify the emotion of a face picture, and relies on other software to provide face detection.
