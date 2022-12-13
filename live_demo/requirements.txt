@@ -1,0 +1,9 @@
+python-multipart==0.0.5
+tensorflow>=2.7.0,<2.9.0
+pillow==8.4.0
+opencv-python-headless==4.5.4.60
+jinja2==3.0.3
+numpy
+keras
+click==8.0.3
+PySimpleGUIQt
