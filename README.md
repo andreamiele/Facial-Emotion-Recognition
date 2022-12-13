@@ -51,29 +51,29 @@ Every few frames, I collect a picture of the stream, analyse it as usual, and th
 
 | Layer (type)                |Output Shape              |Param # |  
 |-----------------------------|--------------------------|--------|
-| conv2d (Conv2D)             |(None, 46, 46, 256)       |2560    |  
-| batch_normalization (BatchNormalization) | (None, 46, 46, 256)      |1024    | 
-| conv2d_1 (Conv2D)           |(None, 46, 46, 256)       |590080  |  
-| batch_normalization_1 (BatchNormalization) | (None, 46, 46, 256)      |1024    |  
-| max_pooling2d (MaxPooling2D) | (None, 23, 23, 256)      |0       |  
-| conv2d_2 (Conv2D)           |(None, 23, 23, 128)       |295040  |  
-| batch_normalization_2 (BatchNormalization) | (None, 23, 23, 128)      |512     |  
-| conv2d_3 (Conv2D)           |(None, 23, 23, 128)       |147584  |  
-| batch_normalization_3 (BatchNormalization) | (None, 23, 23, 128)      |512     |   
-| max_pooling2d_1 (MaxPooling2D) | (None, 11, 11, 128)      |0       |  
-| conv2d_4 (Conv2D)           |(None, 11, 11, 64)        |73792   |  
-| batch_normalization_4 (BatchNormalization) | (None, 11, 11, 64)       |256     |  
-| conv2d_5 (Conv2D)           |(None, 11, 11, 64)        |36928   |  
-| batch_normalization_5 (BatchNormalization) |(None, 11, 11, 64)        |256     |    
-| max_pooling2d_2 (MaxPooling2D) |(None, 5, 5, 64)          |0       |  
-| flatten (Flatten)           |(None, 1600)              |0       |  
-| dense (Dense)               |(None, 512)               |819712  |  
-| batch_normalization_6 (BatchNormalization) |(None, 512)               |2048    |  
-| dense_1 (Dense)             |(None, 256)               |131328  |  
-| batch_normalization_7 (BatchNormalization) | (None, 256)              |1024    |  
-| dense_2 (Dense)             |(None, 128)               |32896   |  
-| batch_normalization_8 (BatchNormalization) | (None, 128)              |512     |  
-| dense_3 (Dense)             |(None, 7)                 |903     |  
+| Conv2D             |(None, 46, 46, 256)       |2560    |  
+| BatchNormalization | (None, 46, 46, 256)      |1024    | 
+| Conv2D           |(None, 46, 46, 256)       |590080  |  
+| BatchNormalization | (None, 46, 46, 256)      |1024    |  
+| MaxPooling2D | (None, 23, 23, 256)      |0       |  
+| Conv2D           |(None, 23, 23, 128)       |295040  |  
+| BatchNormalization | (None, 23, 23, 128)      |512     |  
+| Conv2D           |(None, 23, 23, 128)       |147584  |  
+| BatchNormalization | (None, 23, 23, 128)      |512     |   
+| MaxPooling2D | (None, 11, 11, 128)      |0       |  
+| Conv2D           |(None, 11, 11, 64)        |73792   |  
+| BatchNormalization | (None, 11, 11, 64)       |256     |  
+| Conv2D           |(None, 11, 11, 64)        |36928   |  
+| BatchNormalization |(None, 11, 11, 64)        |256     |    
+| MaxPooling2D |(None, 5, 5, 64)          |0       |  
+| Flatten           |(None, 1600)              |0       |  
+| Dense               |(None, 512)               |819712  |  
+| BatchNormalization |(None, 512)               |2048    |  
+| Dense             |(None, 256)               |131328  |  
+| BatchNormalization | (None, 256)              |1024    |  
+| Dense             |(None, 128)               |32896   |  
+| BatchNormalization | (None, 128)              |512     |  
+| Dense             |(None, 7)                 |903     |  
                                                                 
 
 **Total params:** 2,137,991 </br>
