@@ -60,21 +60,21 @@ Because my processing capacity was so restricted, it was difficult to do a compl
 #### Results
 The best model has a testing accuracy of 66%, according to the classification report and the confusion matrix. As I can see, the model has a proclivity to conflate melancholy with fear and neutral with sadness. This might be due to the kind of photographs in the dataset - many images feature hands covering their faces to express grief or fear. The neutral faces resemble some of the sad faces in appearance. Although the model's performance in predicting disgust is not awful, the model's accuracy when dealing with additional disgust pictures may suffer due to a lack of data.
 
-<img src="results/CNN.PNG" width="400"/>
+<img src="results/CNN.PNG" width="800"/>
 
 ### SVM
 For SVM, I used sklearn’s SVC function to create all of the SVM models. I started by creating a single model for each Kernel option, and set the rest of the parameters to the default values of the SVC function. I tested with **Linear, Polynomial and RBF** kernels.
 
 #### Results
 RBF had the best accuracy at 44%, and the polynomial kernel had 43% accuracy. The rest of the kernels had accuracies below 40%, with the linear kernel having the lowest accuracy, at 35%. Since the difference between the RBF kernel and polynomial kernel was only 1%, I decided to fine tune the other parameters for both of the kernels. I started with the Polynomial first because it has the degree of the function as an extra parameter. The original Polynomial model I trained used a degree of 3, so I tested new models with higher degrees. However, increasing the degree did not improve the accuracy. My initial RBF and Polynomial models were the best two models I would create as changing any of the other parameters only decreased the accuracy of the model. Interestingly, most SVM models were more likely to predict happiness than any other emotion, and would avoid predicting disgust. SVM models take relatively little time to train compared to the other models- the fastest SVM took about 30 minutes to train, and the slowest SVM took about 2 hours to train.
-<img src="results/SVM.PNG" width="400"/>
+<img src="results/SVM.PNG" width="800"/>
 
 ### KNN
 Multiple KNN models were tested for this experiment. Hyperparameter tuning was done using gridsearch. The parameters used in gridsearch were leaf_size, n_neighbors, and p.
 #### Results
 The highest KNN accuracy was 41% and it was achieved when n_neighbors = 1 and p = 1. However, this model frequently confused Happy and Neutral faces.
 
-<img src="results/KNN.PNG" width="400"/>
+<img src="results/KNN.PNG" width="800"/>
 
 # Software implementation
 ## Diagram
