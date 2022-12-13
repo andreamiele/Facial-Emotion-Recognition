@@ -3,6 +3,8 @@ In Summer 2022, I did this personal project which is able to predict human emoti
 
 **Andrea Miele**
 
+<img src="example_images/demo live.gif" width="400"/>
+
 # Introduction
 One of the most important nonverbal forms of communication and social interaction between individuals is facial expression. Because humans are a social creature, we may learn about someone's thoughts or feelings by examining their facial expressions. In cases when an individual is presenting a specific
 
