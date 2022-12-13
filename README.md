@@ -79,6 +79,7 @@ The highest KNN accuracy was 41% and it was achieved when n_neighbors = 1 and p 
 # Software implementation
 ## Diagram
 <img src="results/Flowchart.png" width="400"/>
+
 ## Explanation
 After training three models, CNN, SVM, KNN, with a relatively high accuracy, I created an "app" that can capture the video stream of the webcam and detect the emotion per frame. As mentioned before, my models can only classify the emotion of a face picture, and relies on other software to provide face detection.
 
@@ -93,6 +94,7 @@ Because the 'disgust' data was relatively little in comparison to other emotions
 
 However, I opted to maintain the label since it would limit the scope of my model in real-world scenarios. Keeping the label allows me to progressively add additional data to my model and increase its accuracy.
 I added face detection to my model for software implementation by utilizing the opencv cascade classifier, which captures the face from the image. The opencv cascade classifier converts the image to a normalized grayscale with a 48*48 resolution, after which my model predicts its mood based on the image. I can enhance the model even further by post-training it using a dataset in which I ask people to create certain emotional facial expressions.
+
 # Extra-information
 
 # References
