@@ -75,10 +75,10 @@ Every few frames, I collect a picture of the stream, analyse it as usual, and th
 | batch_normalization_8 (BatchNormalization) | (None, 128)              |512     |  
 | dense_3 (Dense)             |(None, 7)                 |903     |  
                                                                 
-_________________________________________________________________ </br>
-Total params: 2,137,991 </br>
-Trainable params: 2,134,407 </br>
-Non-trainable params: 3,584 </br>
+</br>
+**Total params:** 2,137,991 </br>
+**Trainable params:** 2,134,407 </br>
+**Non-trainable params:** 3,584 </br>
 _________________________________________________________________
 
 For CNN, I created the mode using Keras' sequential model. In general, CNN is a relatively sophisticated model with several layer combinations. I began with three modules, each consisting of two Conv2D layers, a Batch Normalization layer, and a MaxPooling2D layer.
